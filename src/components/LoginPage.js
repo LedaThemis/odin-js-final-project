@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
-import Footer from './Footer.js';
+import Footer from './Footer';
 
-import TwitterLogo from '../assets/TwitterLogo.js';
+import TwitterLogo from '../assets/TwitterLogo';
+import GoogleLogo from '../assets/GoogleLogo';
 import LoginPageBackground from '../assets/login_page_background.png';
 import '../styles/LoginPage.css';
 
@@ -16,6 +17,10 @@ const LoginPage = () => {
             <TwitterLogo size={3} />
             <h1>Happening now</h1>
             <h3>Join Twitter today.</h3>
+            <StyledGoogleSignInButton className='button'>
+                <GoogleLogo size={1.25} />
+                <p>Sign in with Google</p>
+            </StyledGoogleSignInButton>
           </div>
         </div>
 
@@ -75,6 +80,20 @@ const LoginPageStyle = styled.div`
   h3 {
     transform: scale(1, 0.8);
   }
+`;
+
+const StyledGoogleSignInButton = styled.button`
+  padding: 0.25rem 3rem;
+  
+  border: 1px solid rgb(207, 217, 222);
+  border-radius: 1rem;
+
+  p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'IBM Plex Sans';
+}
 `;
 
 export default LoginPage;
