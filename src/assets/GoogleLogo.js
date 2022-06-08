@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
-const GoogleLogo = ({ size }) => {
-  const Color = styled.svg`
-    color: rgb(15, 20, 25);
-    width: ${size}rem;
-    height: ${size}rem;
-  `;
+const Color = styled.svg`
+  color: rgb(15, 20, 25);
+  width: ${(props) => props.size}rem;
+  height: ${(props) => props.size}rem;
+`;
 
+const GoogleLogo = ({ size }) => {
   return (
-    <Color>
+    <Color size={size}>
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <g>
           <path
