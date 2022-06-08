@@ -1,3 +1,5 @@
+import { useAuthValue } from '../AuthContext';
+
 import styled from 'styled-components';
 
 import Footer from './Footer';
@@ -7,9 +9,15 @@ import GoogleLogo from '../assets/GoogleLogo';
 import LoginPageBackground from '../assets/login_page_background.png';
 import '../styles/LoginPage.css';
 
+import { signIn } from '../firebase';
+import { Navigate } from 'react-router-dom';
+
 const LoginPage = () => {
+  const { currentUser } = useAuthValue();
+
   return (
     <LoginPageStyle>
+      {currentUser && <Navigate to="/" />}
       <div id="login-page--container">
         <div id="login-page--main">
           <div id="login-page--background"></div>
@@ -17,13 +25,12 @@ const LoginPage = () => {
             <TwitterLogo size={3} />
             <h1>Happening now</h1>
             <h3>Join Twitter today.</h3>
-            <StyledGoogleSignInButton className='button'>
-                <GoogleLogo size={1.25} />
-                <p>Sign in with Google</p>
+            <StyledGoogleSignInButton className="button" onClick={() => signIn()}>
+              <GoogleLogo size={1.25} />
+              <p>Sign in with Google</p>
             </StyledGoogleSignInButton>
           </div>
         </div>
-
         <Footer />
       </div>
     </LoginPageStyle>
@@ -84,7 +91,7 @@ const LoginPageStyle = styled.div`
 
 const StyledGoogleSignInButton = styled.button`
   padding: 0.25rem 3rem;
-  
+
   border: 1px solid rgb(207, 217, 222);
   border-radius: 1rem;
 
@@ -93,7 +100,7 @@ const StyledGoogleSignInButton = styled.button`
     font-size: 1rem;
     font-weight: bold;
     font-family: 'IBM Plex Sans';
-}
+  }
 `;
 
 export default LoginPage;
