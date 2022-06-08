@@ -1,4 +1,4 @@
-import './styles/HomePage.css';
+import '../styles/HomePage.css';
 
 import { getAuth } from 'firebase/auth';
 import { Navigate } from 'react-router-dom';
