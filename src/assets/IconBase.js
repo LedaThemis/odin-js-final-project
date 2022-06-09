@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 
-const StyledIconBase = styled.svg`
+const StyledIconBase = styled.div`
   width: ${(props) => props.Size}rem;
   height: ${(props) => props.Size}rem;
+
+  display: flex;
 `;
 
 
-const IconBase = ({ size, path, ...props }) => {
-  return <StyledIconBase viewBox='0 0 24 24' Size={size} {...props}>{path}</StyledIconBase>;
+const IconBase = ({ size, svg, ...props }) => {
+  return <StyledIconBase Size={size} {...props}>{svg}</StyledIconBase>;
 };
 
 export default IconBase;
