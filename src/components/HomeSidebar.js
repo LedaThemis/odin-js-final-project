@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 import SidebarButton from './SidebarButton';
+import TweetButton from './TweetButton';
 
 import HomeButtonIcon from '../assets/sidebar/HomeButtonIcon';
 import ExploreButtonIcon from '../assets/sidebar/ExploreButtonIcon';
@@ -14,39 +15,48 @@ import TwitterLogo from '../assets/TwitterLogo';
 const HomeSidebar = () => {
   const [currentButtonSelected, setCurrentButtonSelected] = useState('');
 
+  const getIsSelected = (key) => key === currentButtonSelected;
+
   return (
     <StyledSidebar>
       <SidebarTwitterLogo size={2} />
       <SidebarButton
-        Icon={<HomeButtonIcon size={1.75} isSelected={currentButtonSelected === 'Home'} />}
+        isSelected={getIsSelected('Home')}
+        Icon={<HomeButtonIcon size={1.75} isSelected={getIsSelected('Home')} />}
         text="Home"
         onClick={() => setCurrentButtonSelected('Home')}
       />
       <SidebarButton
-        Icon={<ExploreButtonIcon size={1.75} isSelected={currentButtonSelected === 'Explore'} />}
+        isSelected={getIsSelected('Explore')}
+        Icon={<ExploreButtonIcon size={1.75} isSelected={getIsSelected('Explore')} />}
         text="Explore"
         onClick={() => setCurrentButtonSelected('Explore')}
       />
       <SidebarButton
-        Icon={<NotificationsButtonIcon size={1.75} isSelected={currentButtonSelected === 'Notifications'} />}
+        isSelected={getIsSelected('Notifications')}
+        Icon={<NotificationsButtonIcon size={1.75} isSelected={getIsSelected('Notifications')} />}
         text="Notifications"
         onClick={() => setCurrentButtonSelected('Notifications')}
       />
       <SidebarButton
-        Icon={<MessagesButtonIcon size={1.75} isSelected={currentButtonSelected === 'Messages'} />}
+        isSelected={getIsSelected('Messages')}
+        Icon={<MessagesButtonIcon size={1.75} isSelected={getIsSelected('Messages')} />}
         text="Messages"
         onClick={() => setCurrentButtonSelected('Messages')}
       />
       <SidebarButton
-        Icon={<ProfileButtonIcon size={1.75} isSelected={currentButtonSelected === 'Profile'} />}
+        isSelected={getIsSelected('Profile')}
+        Icon={<ProfileButtonIcon size={1.75} isSelected={getIsSelected('Profile')} />}
         text="Profile"
         onClick={() => setCurrentButtonSelected('Profile')}
       />
       <SidebarButton
-        Icon={<SettingsButtonIcon size={1.75} isSelected={currentButtonSelected === 'Settings'} />}
+        isSelected={getIsSelected('Settings')}
+        Icon={<SettingsButtonIcon size={1.75} isSelected={getIsSelected('Settings')} />}
         text="Settings"
         onClick={() => setCurrentButtonSelected('Settings')}
       />
+      <TweetButton />
     </StyledSidebar>
   );
 };
@@ -54,6 +64,7 @@ const HomeSidebar = () => {
 const StyledSidebar = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 1rem;
 `;
 
 const SidebarTwitterLogo = styled(TwitterLogo)`
