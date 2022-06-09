@@ -1,3 +1,5 @@
+import styled from 'styled-components';
+
 import '../styles/HomePage.css';
 
 import { Navigate } from 'react-router-dom';
@@ -9,12 +11,36 @@ const HomePage = () => {
   const { currentUser, isLoaded } = useAuthValue();
 
   return (
-    <div className="App">
+    <StyledHomePage>
       {isLoaded && !currentUser && <Navigate to="/login" />}
       {/* TODO: ADD HOME UI */}
-      <HomeSidebar />
-    </div>
+      <StyledHomeSidebar>
+        <HomeSidebar />
+      </StyledHomeSidebar>
+      <HomePageHeading>Home</HomePageHeading>
+    </StyledHomePage>
   );
 };
+
+const HomePageHeading = styled.h2`
+  font-family: Roboto;
+  font-size: 20px;
+  margin: 0;
+  padding: 12px 16px;
+`;
+
+const StyledHomePage = styled.div`
+  display: grid;
+  grid-template-columns: 0.6fr 1fr 0.6fr;
+  grid-template-areas: '
+    LEFT HEADER RIGHT
+  ';
+`;
+
+const StyledHomeSidebar = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  height: 100vh;
+`
 
 export default HomePage;
