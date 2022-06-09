@@ -16,7 +16,7 @@ const StyledSidebarButton = styled(ButtonBase)`
     font-size: 1.25rem;
     transform: scale(1, 0.95);
     margin: 0 16px 0 20px;
-    font-weight: 400;
+    font-weight: ${(props) => props.isSelected ? 700 : 400};
   }
   padding: 12px;
 
