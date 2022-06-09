@@ -64,7 +64,7 @@ const HomeSidebar = () => {
 const StyledSidebar = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 4px;
 
   align-items: flex-start;
 
@@ -90,7 +90,7 @@ const SidebarTwitterLogo = styled(TwitterLogo)`
 `;
 
 const StyledTweetButton = styled(TweetButton)`
-  width: 100%;
+  width: 225px;
 `
 
 export default HomeSidebar;
