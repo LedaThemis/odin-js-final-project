@@ -9,16 +9,22 @@ import LoginPage from './components/LoginPage';
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
+      setIsLoaded(true);
     });
+
+    return () => {
+      setIsLoaded(false)
+    }
   }, []);
 
   return (
     <BrowserRouter basename="/odin-final-project">
-      <AuthProvider value={{ currentUser }}>
+      <AuthProvider value={{ currentUser, isLoaded }}>
         <Routes>
           <Route index element={<Navigate to="/home" />} />
           <Route path="/home" element={<HomePage />} />
