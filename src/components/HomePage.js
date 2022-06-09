@@ -2,6 +2,7 @@ import '../styles/HomePage.css';
 
 import { Navigate } from 'react-router-dom';
 
+import HomeSidebar from './HomeSidebar';
 import { useAuthValue } from '../AuthContext';
 
 const HomePage = () => {
@@ -11,7 +12,7 @@ const HomePage = () => {
     <div className="App">
       {isLoaded && !currentUser && <Navigate to="/login" />}
       {/* TODO: ADD HOME UI */}
-      Home
+      <HomeSidebar />
     </div>
   );
 };
