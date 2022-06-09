@@ -12,7 +12,11 @@ const StyledSidebarButton = styled(ButtonBase)`
   }
 
   p {
+    font-family: Roboto, sans-serif;
+    font-size: 1.25rem;
+    transform: scale(1, 0.95);
     margin: 0 16px 0 20px;
+    font-weight: 400;
   }
   padding: 12px;
 
@@ -23,8 +27,6 @@ const StyledSidebarButton = styled(ButtonBase)`
 
   transition-property: background-color, box-shadow;
   transition-duration: 0.2s;
-
-  font-family: Syne;
 `;
 
 export default SidebarButton;
