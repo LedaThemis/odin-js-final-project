@@ -56,7 +56,7 @@ const HomeSidebar = () => {
         text="Settings"
         onClick={() => setCurrentButtonSelected('Settings')}
       />
-      <TweetButton />
+      <StyledTweetButton />
     </StyledSidebar>
   );
 };
@@ -65,6 +65,12 @@ const StyledSidebar = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  align-items: flex-start;
+
+  width: 275px;
+
+  padding: 0 12px;
 `;
 
 const SidebarTwitterLogo = styled(TwitterLogo)`
@@ -82,5 +88,9 @@ const SidebarTwitterLogo = styled(TwitterLogo)`
   transition-property: background-color, box-shadow;
   transition-duration: 0.2s;
 `;
+
+const StyledTweetButton = styled(TweetButton)`
+  width: 100%;
+`
 
 export default HomeSidebar;
