@@ -41,6 +41,8 @@ const StyledHomeSidebar = styled.div`
   display: flex;
   justify-content: flex-end;
   height: 100vh;
-`
+
+  border-right: 1px solid rgba(15, 20, 25, 0.1);
+`;
 
 export default HomePage;
