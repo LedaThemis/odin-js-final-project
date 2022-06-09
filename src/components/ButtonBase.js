@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const ButtonBase = ({ Icon, text, onClick }) => {
+const ButtonBase = ({ Icon, text, onClick, className }) => {
   return (
-    <StyledButtonBase onClick={onClick}>
+    <StyledButtonBase onClick={onClick} className={className}>
       {Icon}
       <StyledParagraph>{text}</StyledParagraph>
     </StyledButtonBase>
