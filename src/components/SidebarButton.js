@@ -23,6 +23,8 @@ const StyledSidebarButton = styled(ButtonBase)`
 
   transition-property: background-color, box-shadow;
   transition-duration: 0.2s;
+
+  font-family: Syne;
 `;
 
 export default SidebarButton;
