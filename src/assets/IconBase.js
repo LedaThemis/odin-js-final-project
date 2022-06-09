@@ -6,8 +6,8 @@ const StyledIconBase = styled.svg`
 `;
 
 
-const IconBase = ({ size, path }) => {
-  return <StyledIconBase viewBox='0 0 24 24' Size={size}>{path}</StyledIconBase>;
+const IconBase = ({ size, path, ...props }) => {
+  return <StyledIconBase viewBox='0 0 24 24' Size={size} {...props}>{path}</StyledIconBase>;
 };
 
 export default IconBase;
