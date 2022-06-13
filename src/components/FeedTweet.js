@@ -27,8 +27,7 @@ const StyledFeedTweet = styled.div`
   display: flex;
   gap: 10px;
 
-  padding: 10px 0;
-  padding-left: 16px;
+  padding: 10px 16px;
 
   border-top: 1px solid rgba(15, 20, 25, 0.1);
   border-bottom: 1px solid rgba(15, 20, 25, 0.1);

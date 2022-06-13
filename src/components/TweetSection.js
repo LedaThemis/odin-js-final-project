@@ -27,15 +27,14 @@ const StyledTweetSection = styled.div`
   display: flex;
   gap: 10px;
 
-  padding-top: 16px;
-
   img {
     width: 48px;
     height: 48px;
     border-radius: 50%;
   }
-
+  padding-top: 16px;
   padding-left: 16px;
+  padding-right: 16px;
   padding-bottom: 10px;
 `;
 
