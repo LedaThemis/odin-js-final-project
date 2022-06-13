@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import ButtonBase from './ButtonBase';
 
-const TweetButton = ({className}) => {
-  return <StyledTweetButton className={className} text="Tweet"></StyledTweetButton>;
+const TweetButton = ({ className, ...props }) => {
+  return <StyledTweetButton className={className} text="Tweet" {...props}></StyledTweetButton>;
 };
 
 const StyledTweetButton = styled(ButtonBase)`
