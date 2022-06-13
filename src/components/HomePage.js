@@ -6,6 +6,7 @@ import { Navigate } from 'react-router-dom';
 
 import HomeSidebar from './HomeSidebar';
 import { useAuthValue } from '../AuthContext';
+import HomePageMiddle from './HomePageMiddle';
 
 const HomePage = () => {
   const { currentUser, isLoaded } = useAuthValue();
@@ -14,10 +15,12 @@ const HomePage = () => {
     <StyledHomePage>
       {isLoaded && !currentUser && <Navigate to="/login" />}
       {/* TODO: ADD HOME UI */}
-      <StyledHomeSidebar>
-        <HomeSidebar />
-      </StyledHomeSidebar>
-      <HomePageHeading>Home</HomePageHeading>
+      {currentUser && (
+        <StyledHomeSidebar>
+          <HomeSidebar />
+        </StyledHomeSidebar>
+      )}
+      {currentUser && <HomePageMiddle />}
     </StyledHomePage>
   );
 };
