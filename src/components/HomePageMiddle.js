@@ -16,7 +16,6 @@ const HomePageMiddle = () => {
 const StyledHomePageMiddle = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   padding: 12px 0;
 `;
 

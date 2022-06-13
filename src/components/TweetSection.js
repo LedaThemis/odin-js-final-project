@@ -27,6 +27,8 @@ const StyledTweetSection = styled.div`
   display: flex;
   gap: 10px;
 
+  padding-top: 16px;
+
   img {
     width: 48px;
     height: 48px;
