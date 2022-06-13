@@ -22,13 +22,6 @@ const HomePage = () => {
   );
 };
 
-const HomePageHeading = styled.h2`
-  font-family: Roboto;
-  font-size: 20px;
-  margin: 0;
-  padding: 12px 16px;
-`;
-
 const StyledHomePage = styled.div`
   display: grid;
   grid-template-columns: 0.6fr 1fr 0.6fr;
