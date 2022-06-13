@@ -7,6 +7,7 @@ import { Navigate } from 'react-router-dom';
 import HomeSidebar from './HomeSidebar';
 import { useAuthValue } from '../AuthContext';
 import HomePageMiddle from './HomePageMiddle';
+import HomePageRight from './HomePageLeft';
 
 const HomePage = () => {
   const { currentUser, isLoaded } = useAuthValue();
@@ -21,6 +22,7 @@ const HomePage = () => {
         </StyledHomeSidebar>
       )}
       {currentUser && <HomePageMiddle />}
+      {currentUser && <HomePageRight />}
     </StyledHomePage>
   );
 };
