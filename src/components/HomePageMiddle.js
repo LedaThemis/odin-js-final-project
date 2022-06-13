@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import TweetSection from './TweetSection';
+import TweetsFeed from './TweetsFeed';
 
 const HomePageMiddle = () => {
   return (
@@ -9,6 +10,7 @@ const HomePageMiddle = () => {
       <StyledTweetSection>
         <TweetSection />
       </StyledTweetSection>
+      <TweetsFeed />
     </StyledHomePageMiddle>
   );
 };
