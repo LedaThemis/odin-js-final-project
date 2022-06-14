@@ -6,6 +6,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import LoginPage from './components/LoginPage';
+import TweetPopup from './components/TweetPopup';
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -27,7 +28,9 @@ const App = () => {
       <AuthProvider value={{ currentUser, isLoaded }}>
         <Routes>
           <Route index element={<Navigate to="/home" />} />
-          <Route path="/home" element={<HomePage />} />
+          <Route path="home" element={<HomePage />}>
+            <Route path='tweet' element={<TweetPopup />} />
+          </Route>
           <Route path="/login" element={<LoginPage />} />
         </Routes>
       </AuthProvider>

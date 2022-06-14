@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 import { useAuthValue } from '../AuthContext';
 import SidebarButton from './SidebarButton';
@@ -15,6 +16,7 @@ import TwitterLogo from '../assets/TwitterLogo';
 import SidebarProfile from './SidebarProfile';
 
 const HomeSidebar = () => {
+  const navigate = useNavigate();
   const [currentButtonSelected, setCurrentButtonSelected] = useState('');
   const { isLoaded } = useAuthValue();
 
@@ -60,7 +62,7 @@ const HomeSidebar = () => {
           text="Settings"
           onClick={() => setCurrentButtonSelected('Settings')}
         />
-        <StyledTweetButton />
+        <StyledTweetButton onClick={() => navigate('tweet')} />
       </StyledSidebarButtons>
       {isLoaded && <StyledSidebarProfile />}
     </StyledSidebar>

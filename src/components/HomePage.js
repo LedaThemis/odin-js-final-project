@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import '../styles/HomePage.css';
 
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 
 import HomeSidebar from './HomeSidebar';
 import { useAuthValue } from '../AuthContext';
@@ -23,6 +23,7 @@ const HomePage = () => {
       )}
       {currentUser && <HomePageMiddle />}
       {currentUser && <HomePageRight />}
+      {currentUser && <Outlet />}
     </StyledHomePage>
   );
 };
