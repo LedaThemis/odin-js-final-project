@@ -79,6 +79,8 @@ const StyledTopSection = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  gap: 10px;
 `;
 
 const StyledProfileArea = styled.div`
@@ -89,6 +91,8 @@ const StyledProfileArea = styled.div`
   p {
     margin: 0;
     font-size: 15px;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 `;
 
