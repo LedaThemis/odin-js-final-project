@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { addDoc, collection, getFirestore } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -14,11 +15,32 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app)
+
+// Authentication
+const auth = getAuth(app);
 
 const signIn = async () => {
   const provider = new GoogleAuthProvider();
   await signInWithPopup(auth, provider);
 };
 
-export { auth, signIn };
+// Firestore
+const db = getFirestore(app);
+
+const addTweet = async (author_uid, author_name, author_photoURL, text) => {
+  try {
+    const docRef = await addDoc(collection(db, 'tweets'), {
+      author_uid,
+      author_name,
+      author_photoURL,
+      text,
+      timestamp: Date.now(),
+    });
+
+    console.log('Added tweet with ID:', docRef.id);
+  } catch (e) {
+    console.error('Error adding tweet:', e);
+  }
+};
+
+export { auth, signIn, addTweet };

@@ -2,11 +2,17 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 import { useAuthValue } from '../AuthContext';
+import { addTweet } from '../firebase';
 import TweetButton from './TweetButton';
 
 const TweetSection = () => {
   const { currentUser } = useAuthValue();
   const [tweetText, setTweetText] = useState('');
+
+  const submitTweet = (author, text) => {
+    setTweetText('');
+    addTweet(author.uid, author.displayName, author.photoURL, text);
+  };
 
   return (
     <StyledTweetSection>
@@ -17,7 +23,7 @@ const TweetSection = () => {
           value={tweetText}
           onChange={(e) => setTweetText(e.target.value)}
         />
-        <StyledTweetButton disabled={tweetText === ''} />
+        <StyledTweetButton onClick={() => submitTweet(currentUser, tweetText)} disabled={tweetText === ''} />
       </StyledSection>
     </StyledTweetSection>
   );
