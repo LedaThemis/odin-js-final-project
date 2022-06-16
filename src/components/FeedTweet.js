@@ -113,7 +113,8 @@ const StyledContextMenuButton = styled.button`
 
   background-color: transparent;
   border: none;
-  padding: 8px 8px;
+  padding: 8px;
+  margin: -8px;
   border-radius: 9999px;
   cursor: pointer;
 
