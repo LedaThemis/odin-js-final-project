@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import { useAuthValue } from '../AuthContext';
 import SidebarButton from './SidebarButton';
@@ -17,50 +17,52 @@ import SidebarProfile from './SidebarProfile';
 
 const HomeSidebar = () => {
   const navigate = useNavigate();
-  const [currentButtonSelected, setCurrentButtonSelected] = useState('');
+  const location = useLocation();
   const { isLoaded } = useAuthValue();
 
-  const getIsSelected = (key) => key === currentButtonSelected;
+  console.log(location)
+
+  const getIsSelected = (key) => key === location.pathname;
 
   return (
     <StyledSidebar>
       <StyledSidebarButtons>
         <SidebarTwitterLogo size={2} />
         <SidebarButton
-          isSelected={getIsSelected('Home')}
-          Icon={<HomeButtonIcon size={1.75} isSelected={getIsSelected('Home')} />}
+          isSelected={getIsSelected('/home')}
+          Icon={<HomeButtonIcon size={1.75} isSelected={getIsSelected('/home')} />}
           text="Home"
-          onClick={() => setCurrentButtonSelected('Home')}
+          onClick={() => navigate('.')}
         />
         <SidebarButton
-          isSelected={getIsSelected('Explore')}
-          Icon={<ExploreButtonIcon size={1.75} isSelected={getIsSelected('Explore')} />}
+          isSelected={getIsSelected('/home/explore')}
+          Icon={<ExploreButtonIcon size={1.75} isSelected={getIsSelected('/home/explore')} />}
           text="Explore"
-          onClick={() => setCurrentButtonSelected('Explore')}
+          onClick={() => navigate('explore')}
         />
         <SidebarButton
-          isSelected={getIsSelected('Notifications')}
-          Icon={<NotificationsButtonIcon size={1.75} isSelected={getIsSelected('Notifications')} />}
+          isSelected={getIsSelected('/home/notifications')}
+          Icon={<NotificationsButtonIcon size={1.75} isSelected={getIsSelected('/home/notifications')} />}
           text="Notifications"
-          onClick={() => setCurrentButtonSelected('Notifications')}
+          onClick={() => navigate('notifications')}
         />
         <SidebarButton
-          isSelected={getIsSelected('Messages')}
-          Icon={<MessagesButtonIcon size={1.75} isSelected={getIsSelected('Messages')} />}
+          isSelected={getIsSelected('/home/messages')}
+          Icon={<MessagesButtonIcon size={1.75} isSelected={getIsSelected('/home/messages')} />}
           text="Messages"
-          onClick={() => setCurrentButtonSelected('Messages')}
+          onClick={() => navigate('messages')}
         />
         <SidebarButton
-          isSelected={getIsSelected('Profile')}
-          Icon={<ProfileButtonIcon size={1.75} isSelected={getIsSelected('Profile')} />}
+          isSelected={getIsSelected('/home/profile')}
+          Icon={<ProfileButtonIcon size={1.75} isSelected={getIsSelected('/home/profile')} />}
           text="Profile"
-          onClick={() => setCurrentButtonSelected('Profile')}
+          onClick={() => navigate('profile')}
         />
         <SidebarButton
-          isSelected={getIsSelected('Settings')}
-          Icon={<SettingsButtonIcon size={1.75} isSelected={getIsSelected('Settings')} />}
+          isSelected={getIsSelected('/home/settings')}
+          Icon={<SettingsButtonIcon size={1.75} isSelected={getIsSelected('/home/settings')} />}
           text="Settings"
-          onClick={() => setCurrentButtonSelected('Settings')}
+          onClick={() => navigate('settings')}
         />
         <StyledTweetButton onClick={() => navigate('tweet')} />
       </StyledSidebarButtons>
