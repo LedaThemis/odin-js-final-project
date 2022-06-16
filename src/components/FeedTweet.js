@@ -1,11 +1,14 @@
+import defaultAvatar from '../assets/default-avatar.jpg';
+
 import styled from 'styled-components';
 
-import { useAuthValue } from '../AuthContext';
+const FeedTweet = ({ uid, displayName, photoURL, text, tweetID }) => {
 
-const FeedTweet = () => {
-  const { currentUser } = useAuthValue();
-
-  const { photoURL, displayName, uid } = currentUser;
+  const imageExists = (url) => {
+    fetch(url)
+      .then((_) => true)
+      .catch((_) => false);
+  };
 
   return (
     <StyledFeedTweet data-id={tweetID}>
