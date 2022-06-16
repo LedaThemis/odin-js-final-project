@@ -29,15 +29,13 @@ const db = getFirestore(app);
 
 const addTweet = async (author_uid, author_name, author_photoURL, text) => {
   try {
-    const docRef = await addDoc(collection(db, 'tweets'), {
+    await addDoc(collection(db, 'tweets'), {
       author_uid,
       author_name,
       author_photoURL,
       text,
       timestamp: Date.now(),
     });
-
-    console.log('Added tweet with ID:', docRef.id);
   } catch (e) {
     console.error('Error adding tweet:', e);
   }
