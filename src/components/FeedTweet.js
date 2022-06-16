@@ -75,6 +75,8 @@ const StyledTweetText = styled.p`
 
   font-family: Roboto, sans-serif;
 
+  white-space: pre-wrap;
+
   margin: 0;
   padding: 5px 0;
 `;
