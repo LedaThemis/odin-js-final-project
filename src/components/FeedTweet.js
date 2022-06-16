@@ -4,6 +4,7 @@ import { BsTrash, BsThreeDots } from 'react-icons/bs';
 
 import defaultAvatar from '../assets/default-avatar.jpg';
 import { useAuthValue } from '../AuthContext';
+import { removeTweet } from '../firebase';
 
 const FeedTweet = ({ uid, displayName, photoURL, text, tweetID }) => {
   const [currentThreeDotsColor, setCurrentThreeDotsColor] = useState('rgb(83, 100, 113)');
@@ -38,10 +39,10 @@ const FeedTweet = ({ uid, displayName, photoURL, text, tweetID }) => {
               <BsThreeDots size={'1.5em'} color={currentThreeDotsColor} />
               {isContextMenuShown && (
                 <StyledContextMenu>
-                    <StyledRemoveButton>
-                      <BsTrash size={'1.5em'} style={{ fill: 'red' }} />
-                      <p>Delete</p>
-                    </StyledRemoveButton>
+                  <StyledRemoveButton onClick={() => removeTweet(tweetID)}>
+                    <BsTrash size={'1.5em'} style={{ fill: 'red' }} />
+                    <p>Delete</p>
+                  </StyledRemoveButton>
                 </StyledContextMenu>
               )}
             </StyledContextMenuButton>
@@ -127,8 +128,6 @@ const StyledContextMenu = styled.div`
   border-radius: 4px;
 
   transform: translateX(-160px);
-
-
 `;
 
 const StyledRemoveButton = styled.button`
@@ -141,7 +140,6 @@ const StyledRemoveButton = styled.button`
   gap: 10px;
 
   width: 200px;
-
 
   p {
     font-family: Roboto, sans-serif;
