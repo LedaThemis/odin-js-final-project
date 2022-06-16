@@ -16,6 +16,7 @@ const TweetsFeed = () => {
             uid={tweet.author_uid}
             displayName={tweet.author_name}
             photoURL={tweet.photoURL}
+            timestamp={tweet.timestamp}
             text={tweet.text}
           ></FeedTweet>
         ))}

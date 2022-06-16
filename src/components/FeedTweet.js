@@ -6,7 +6,7 @@ import defaultAvatar from '../assets/default-avatar.jpg';
 import { useAuthValue } from '../AuthContext';
 import { removeTweet } from '../firebase';
 
-const FeedTweet = ({ uid, displayName, photoURL, text, tweetID }) => {
+const FeedTweet = ({ uid, displayName, photoURL, text, tweetID, timestamp }) => {
   const [currentThreeDotsColor, setCurrentThreeDotsColor] = useState('rgb(83, 100, 113)');
   const [isContextMenuShown, setIsContextMenuShown] = useState(false);
   const { currentUser } = useAuthValue();
@@ -28,7 +28,7 @@ const FeedTweet = ({ uid, displayName, photoURL, text, tweetID }) => {
         <StyledTopSection>
           <StyledProfileArea>
             <StyledProfileName>{displayName}</StyledProfileName>
-            <StyledUID>@{uid}</StyledUID>
+            <StyledUID>@{uid}</StyledUID>·<StyledDate>{new Date(timestamp).toLocaleString()}</StyledDate>
           </StyledProfileArea>
           {currentUser.uid === uid && (
             <StyledContextMenuButton
@@ -84,10 +84,11 @@ const StyledTopSection = styled.div`
 const StyledProfileArea = styled.div`
   display: flex;
   gap: 10px;
-  align-items: flex-start;
+  align-items: center;
 
   p {
     margin: 0;
+    font-size: 15px;
   }
 `;
 
@@ -103,6 +104,10 @@ const StyledProfileName = styled.p`
 `;
 
 const StyledUID = styled.p`
+  color: rgb(83, 100, 113);
+`;
+
+const StyledDate = styled.p`
   color: rgb(83, 100, 113);
 `;
 
