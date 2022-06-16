@@ -1,14 +1,24 @@
 import styled from 'styled-components';
 
 import FeedTweet from './FeedTweet';
+import { useCurrentTweets } from '../firebase';
 
 const TweetsFeed = () => {
-  // TODO
+  const { currentTweets } = useCurrentTweets();
+
   return (
     <StyledTweetsFeed>
-      <FeedTweet />
-      <FeedTweet />
-      <FeedTweet />
+      {currentTweets &&
+        currentTweets.map((tweet) => (
+          <FeedTweet
+            key={tweet.id}
+            tweetID={tweet.id}
+            uid={tweet.author_uid}
+            displayName={tweet.author_name}
+            photoURL={tweet.photoURL}
+            text={tweet.text}
+          ></FeedTweet>
+        ))}
     </StyledTweetsFeed>
   );
 };

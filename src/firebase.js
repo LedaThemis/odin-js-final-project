@@ -1,7 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { addDoc, collection, getFirestore } from 'firebase/firestore';
+import { addDoc, collection, getFirestore, onSnapshot, query } from 'firebase/firestore';
+import { useEffect, useState } from 'react';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -41,4 +42,23 @@ const addTweet = async (author_uid, author_name, author_photoURL, text) => {
   }
 };
 
-export { auth, signIn, addTweet };
+const tweetsQuery = query(collection(db, 'tweets'));
+
+const useCurrentTweets = () => {
+  const [currentTweets, setCurrentTweets] = useState([]);
+
+  useEffect(() => {
+    const unsubscribeFromTweets = onSnapshot(tweetsQuery, (querySnapshot) => {
+      setCurrentTweets([]);
+      querySnapshot.forEach((doc) => {
+        setCurrentTweets((oldTweets) => [...oldTweets, { id: doc.id, ...doc.data() }]);
+      });
+    });
+
+    return () => unsubscribeFromTweets();
+  }, []);
+
+  return { currentTweets: currentTweets.sort((a, b) => b.timestamp - a.timestamp) };
+};
+
+export { auth, signIn, addTweet, useCurrentTweets };

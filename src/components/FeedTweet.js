@@ -8,16 +8,18 @@ const FeedTweet = () => {
   const { photoURL, displayName, uid } = currentUser;
 
   return (
-    <StyledFeedTweet>
-      <StyledProfileImage src={photoURL} alt="profile"></StyledProfileImage>
+    <StyledFeedTweet data-id={tweetID}>
+      <StyledProfileImage
+        src={imageExists(photoURL) ? photoURL : defaultAvatar}
+        alt="profile"
+        onerror={(e) => (e.target.src = defaultAvatar)}
+      ></StyledProfileImage>
       <StyledSection>
         <StyledProfileArea>
           <StyledProfileName>{displayName}</StyledProfileName>
           <StyledUID>@{uid}</StyledUID>
         </StyledProfileArea>
-        <StyledTweetText>
-          Leda is <br></br>Leda is someone who eats food<br></br>Food is<br></br>Great!!!
-        </StyledTweetText>
+        <StyledTweetText>{text}</StyledTweetText>
       </StyledSection>
     </StyledFeedTweet>
   );
