@@ -31,7 +31,15 @@ const App = () => {
           <Route index element={<Navigate to="/home" />} />
           <Route path="home" element={<HomePage />}>
             <Route index element={<HomePageMiddle />} />
-            <Route path="tweet" element={<TweetPopup />} />
+            <Route
+              path="tweet"
+              element={
+                <div>
+                  <HomePageMiddle />
+                  <TweetPopup />
+                </div>
+              }
+            />
             <Route
               path="*"
               element={

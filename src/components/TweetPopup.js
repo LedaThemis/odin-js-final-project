@@ -20,7 +20,9 @@ const TweetPopup = () => {
 };
 
 const StyledTweetPopup = styled.div`
-  position: fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   width: 100vw;
