@@ -14,7 +14,6 @@ const HomePage = () => {
   return (
     <StyledHomePage>
       {isLoaded && !currentUser && <Navigate to="/login" />}
-      {/* TODO: ADD HOME UI */}
       {currentUser && (
         <StyledHomeSidebar>
           <HomeSidebar />
