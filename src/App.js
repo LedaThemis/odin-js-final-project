@@ -26,7 +26,7 @@ const App = () => {
   }, []);
 
   return (
-    <BrowserRouter basename="/odin-final-project">
+    <BrowserRouter>
       <AuthProvider value={{ currentUser, isLoaded }}>
         <Routes>
           <Route index element={<Navigate to="/home" />} />

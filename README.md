@@ -1,4 +1,4 @@
-# [Odin | Twitter Clone](https://ledathemis.github.io/odin-twitter-clone)
+# [Odin | Twitter Clone](https://leda-odin-final-project.web.app/)
 
 Technologies used:
 
