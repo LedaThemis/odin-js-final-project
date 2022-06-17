@@ -11,7 +11,7 @@ const TweetPopup = () => {
     <StyledTweetPopup>
       <StyledTweetSectionContainer>
         <StyledPopupTop>
-          <StyledClosePopupIcon size={1.25} onClick={() => navigate('..')} />
+          <StyledClosePopupIcon size={1.25} onClick={() => navigate(-1)} />
         </StyledPopupTop>
         <TweetSection />
       </StyledTweetSectionContainer>
