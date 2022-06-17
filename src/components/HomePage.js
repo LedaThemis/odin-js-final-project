@@ -6,7 +6,6 @@ import { Navigate, Outlet } from 'react-router-dom';
 
 import HomeSidebar from './HomeSidebar';
 import { useAuthValue } from '../AuthContext';
-import HomePageMiddle from './HomePageMiddle';
 import HomePageRight from './HomePageLeft';
 
 const HomePage = () => {
@@ -21,9 +20,8 @@ const HomePage = () => {
           <HomeSidebar />
         </StyledHomeSidebar>
       )}
-      {currentUser && <HomePageMiddle />}
-      {currentUser && <HomePageRight />}
       {currentUser && <Outlet />}
+      {currentUser && <HomePageRight />}
     </StyledHomePage>
   );
 };
