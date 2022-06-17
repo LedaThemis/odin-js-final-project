@@ -1,12 +1,20 @@
+import { useContext } from 'react';
 import styled from 'styled-components';
 
 import SearchBarIcon from '../assets/SearchBarIcon';
+import SearchContext from './SearchContext';
 
 const SearchBar = () => {
+  const { searchQuery, setSearchQuery } = useContext(SearchContext);
+
   return (
     <StyledSearchBar>
       <StyledSearchBarIcon />
-      <StyledSearchInput placeholder="Search Twitter" />
+      <StyledSearchInput
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        placeholder="Search Twitter"
+      />
     </StyledSearchBar>
   );
 };

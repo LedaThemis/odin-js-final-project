@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 import '../styles/HomePage.css';
@@ -5,10 +6,14 @@ import '../styles/HomePage.css';
 import { Navigate, Outlet } from 'react-router-dom';
 
 import HomeSidebar from './HomeSidebar';
+import HomePageRight from './HomePageRight';
 import { useAuthValue } from '../AuthContext';
-import HomePageRight from './HomePageLeft';
+import SearchContext from './SearchContext';
 
 const HomePage = () => {
+  const [searchQuery, setSearchQuery] = useState('en');
+  const SearchContextValue = { searchQuery, setSearchQuery };
+
   const { currentUser, isLoaded } = useAuthValue();
 
   return (
@@ -19,8 +24,16 @@ const HomePage = () => {
           <HomeSidebar />
         </StyledHomeSidebar>
       )}
-      {currentUser && <Outlet />}
-      {currentUser && <HomePageRight />}
+      {currentUser && (
+        <SearchContext.Provider value={SearchContextValue}>
+          <Outlet />
+        </SearchContext.Provider>
+      )}
+      {currentUser && (
+        <SearchContext.Provider value={SearchContextValue}>
+          <HomePageRight />
+        </SearchContext.Provider>
+      )}
     </StyledHomePage>
   );
 };

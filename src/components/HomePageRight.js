@@ -3,7 +3,11 @@ import styled from 'styled-components';
 import SearchBar from './SearchBar';
 
 const HomePageRight = () => {
-  return <StyledHomePageRight><SearchBar /></StyledHomePageRight>;
+  return (
+    <StyledHomePageRight>
+      <SearchBar />
+    </StyledHomePageRight>
+  );
 };
 
 const StyledHomePageRight = styled.div`
