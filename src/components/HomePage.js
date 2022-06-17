@@ -11,7 +11,7 @@ import { useAuthValue } from '../AuthContext';
 import SearchContext from './SearchContext';
 
 const HomePage = () => {
-  const [searchQuery, setSearchQuery] = useState('en');
+  const [searchQuery, setSearchQuery] = useState('');
   const SearchContextValue = { searchQuery, setSearchQuery };
 
   const { currentUser, isLoaded } = useAuthValue();
