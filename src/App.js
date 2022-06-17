@@ -43,8 +43,8 @@ const App = () => {
             <Route
               path="*"
               element={
-                <main style={{ padding: '1rem' }}>
-                  <p>This is still work in progress</p>
+                <main style={{ padding: '1rem', display: 'flex', justifyContent: 'center' }}>
+                  <h3>This page is still under construction.</h3>
                 </main>
               }
             />
