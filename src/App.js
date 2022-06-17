@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import LoginPage from './components/LoginPage';
 import TweetPopup from './components/TweetPopup';
+import HomePageMiddle from './components/HomePageMiddle';
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -19,8 +20,8 @@ const App = () => {
     });
 
     return () => {
-      setIsLoaded(false)
-    }
+      setIsLoaded(false);
+    };
   }, []);
 
   return (
@@ -29,7 +30,16 @@ const App = () => {
         <Routes>
           <Route index element={<Navigate to="/home" />} />
           <Route path="home" element={<HomePage />}>
-            <Route path='tweet' element={<TweetPopup />} />
+            <Route index element={<HomePageMiddle />} />
+            <Route path="tweet" element={<TweetPopup />} />
+            <Route
+              path="*"
+              element={
+                <main style={{ padding: '1rem' }}>
+                  <p>This is still work in progress</p>
+                </main>
+              }
+            />
           </Route>
           <Route path="/login" element={<LoginPage />} />
         </Routes>
