@@ -70,6 +70,9 @@ const HomeSidebar = () => {
 };
 
 const StyledSidebar = styled.div`
+  position: fixed;
+  height: 100vh;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
