@@ -35,7 +35,7 @@ const App = () => {
               path="tweet"
               element={
                 <div>
-                  <HomePageMiddle />
+                  <div style={{width: '100%'}} />
                   <TweetPopup />
                 </div>
               }
