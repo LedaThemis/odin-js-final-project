@@ -20,8 +20,6 @@ const HomeSidebar = () => {
   const location = useLocation();
   const { isLoaded } = useAuthValue();
 
-  console.log(location)
-
   const getIsSelected = (key) => key === location.pathname;
 
   return (
