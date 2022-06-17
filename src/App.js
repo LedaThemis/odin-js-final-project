@@ -8,6 +8,7 @@ import HomePage from './components/HomePage';
 import LoginPage from './components/LoginPage';
 import TweetPopup from './components/TweetPopup';
 import HomePageMiddle from './components/HomePageMiddle';
+import NotFound from './components/NotFound';
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -35,7 +36,7 @@ const App = () => {
               path="tweet"
               element={
                 <div>
-                  <div style={{width: '100%'}} />
+                  <div style={{ width: '100%' }} />
                   <TweetPopup />
                 </div>
               }
@@ -49,7 +50,9 @@ const App = () => {
               }
             />
           </Route>
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="404" element={<NotFound />} />
+          <Route path="*" element={<Navigate to="404" />} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>
